@@ -3,85 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Pengaduan Narkoba</title>
-    <!-- Bootstrap 5 CSS CDN -->
+    <title>Portal Pengaduan BNNP</title>
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
     <style>
-        body { background-color: #f8f9fa; }
-        .hero-section {
-            background: linear-gradient(to right, #0d3b66, #3d5a80);
-            color: white;
-            padding: 50px 0;
-            margin-bottom: 30px;
+        .portal-bg {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #005c97 0%, #363795 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
-        .card { box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: none; }
+        /* Hiasan background abstrak */
+        .circle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        .c1 { width: 300px; height: 300px; top: -50px; left: -50px; }
+        .c2 { width: 200px; height: 200px; bottom: 50px; right: -50px; }
     </style>
 </head>
 <body>
 
-    <!-- Header / Hero Section -->
-    <div class="hero-section text-center">
-        <div class="container">
-            <h1>Sistem Informasi Pengaduan Kasus Narkoba</h1>
-            <p class="lead">Mari bersama wujudkan lingkungan bebas narkoba. Identitas pelapor aman.</p>
-        </div>
-    </div>
+    <div class="portal-bg">
+        <!-- Hiasan Bulat -->
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
 
-    <!-- Form Pengaduan -->
-    <div class="container mb-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header bg-danger text-white">
-                        <h5 class="mb-0">Formulir Pengaduan</h5>
-                    </div>
-                    <div class="card-body">
-                        <!-- PENTING: enctype="multipart/form-data" wajib ada untuk upload foto -->
-                        <form action="proses_aduan.php" method="POST" enctype="multipart/form-data">
-                            
-                            <div class="mb-3">
-                                <label for="nama" class="form-label">Nama Pelapor (Boleh Samaran)</label>
-                                <input type="text" class="form-control" name="nama_pelapor" required placeholder="Masukkan nama Anda">
+        <div class="container position-relative z-index-1">
+            <div class="text-center text-white mb-5">
+                <img src="assets\img\Logo_BNN.png" alt="Logo BNN" width="100" class="mb-3 drop-shadow">
+                <h2 class="fw-bold">SISTEM PENGADUAN NARKOBA</h2>
+                <p class="lead">Badan Narkotika Nasional Provinsi Sumatera Selatan</p>
+                <div class="badge bg-warning text-dark px-3 py-2 rounded-pill mt-2">
+                    <i class="fas fa-shield-alt"></i> Identitas Pelapor Dijamin Aman
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <!-- Pilihan 1: Masyarakat -->
+                <div class="col-md-5 col-lg-4 mb-4">
+                    <div class="card card-custom h-100 text-center p-4">
+                        <div class="card-body">
+                            <div class="mb-4 text-primary">
+                                <i class="fas fa-bullhorn fa-4x"></i>
                             </div>
-
-                            <div class="mb-3">
-                                <label for="telp" class="form-label">Nomor Telepon / WhatsApp</label>
-                                <input type="number" class="form-control" name="no_telp" required placeholder="08xxxxxxxxxx">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="alamat" class="form-label">Alamat / Lokasi Kejadian</label>
-                                <textarea class="form-control" name="alamat_kejadian" rows="2" required placeholder="Jelaskan lokasi selengkap mungkin"></textarea>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="laporan" class="form-label">Isi Laporan / Kronologi</label>
-                                <textarea class="form-control" name="isi_laporan" rows="4" required placeholder="Ceritakan detail aktivitas mencurigakan..."></textarea>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="foto" class="form-label">Bukti Foto (Opsional)</label>
-                                <input type="file" class="form-control" name="bukti_foto" accept=".jpg, .jpeg, .png">
-                                <small class="text-muted">Format: JPG/PNG. Maksimal 2MB.</small>
-                            </div>
-
-                            <div class="d-grid gap-2">
-                                <button type="submit" name="kirim" class="btn btn-primary btn-lg">Kirim Laporan</button>
-                            </div>
-
-                        </form>
+                            <h4 class="card-title fw-bold text-dark">Layanan Pengaduan</h4>
+                            <p class="card-text text-muted">Laporkan indikasi penyalahgunaan narkoba di lingkungan Anda secara online.</p>
+                            <a href="form_aduan.php" class="btn btn-bnn w-100 py-2 rounded-pill">
+                                BUAT LAPORAN SEKARANG <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="text-center mt-3">
-                    <a href="admin/index.php" class="text-secondary small">Login Administrator</a>
-                </div>
 
+                <!-- Pilihan 2: Admin -->
+                <div class="col-md-5 col-lg-4 mb-4">
+                    <div class="card card-custom h-100 text-center p-4" style="background-color: #f8f9fa; border: 2px dashed #dee2e6;">
+                        <div class="card-body">
+                            <div class="mb-4 text-secondary">
+                                <i class="fas fa-user-lock fa-4x"></i>
+                            </div>
+                            <h4 class="card-title fw-bold text-dark">Login Petugas</h4>
+                            <p class="card-text text-muted">Khusus untuk petugas admin BNNP untuk mengelola laporan masuk.</p>
+                            <a href="admin/index.php" class="btn btn-outline-dark w-100 py-2 rounded-pill">
+                                MASUK SISTEM <i class="fas fa-sign-in-alt ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center text-white-50 mt-5">
+                <small>&copy; 2025 BNNP Sumatera Selatan - War On Drugs</small>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

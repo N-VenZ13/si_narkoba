@@ -1,0 +1,52 @@
+/* Palette Warna BNN */
+:root {
+    --bnn-blue: #005c97;
+    --bnn-dark: #363795; 
+    --bnn-accent: #ffc107; /* Kuning Emas */
+}
+
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Background Gradient Khas BNN */
+.bg-bnn {
+    background: linear-gradient(135deg, var(--bnn-blue), var(--bnn-dark));
+    color: white;
+}
+
+/* Tombol Custom */
+.btn-bnn {
+    background-color: var(--bnn-dark);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-bnn:hover {
+    background-color: var(--bnn-blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Card yang lebih modern (Shadow lembut) */
+.card-custom {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px);
+}
+
+.card-header-bnn {
+    background: linear-gradient(to right, var(--bnn-dark), var(--bnn-blue));
+    color: white;
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+    padding: 20px;
+}
